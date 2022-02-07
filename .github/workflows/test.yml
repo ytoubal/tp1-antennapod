@@ -68,10 +68,11 @@ jobs:
     runs-on: macOS-latest #Have to use mac os for HAXM hw acceleration. although it uses 10x more run minutes than ubuntu on GH actions
     steps:
       - uses: actions/checkout@v2
+
       - name: Instrumentation Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
           arch: x86
           disable-animations: true
-          script: ./gradlew connectedAndroidTest
+          script: chmod +x gradlew; ./gradlew connectedAndroidTest
