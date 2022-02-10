@@ -83,8 +83,8 @@ jobs:
           arch: x86
           disable-animations: true
           script: chmod +x gradlew; 
-          script: ./gradlew core:connectedAndroidTest; 
-          script: ./gradlew app:connectedAndroidTest
+                  ./gradlew core:connectedAndroidTest; 
+                  ./gradlew app:connectedAndroidTest
       
       - name: Archive test results
         uses: actions/upload-artifact@v2
