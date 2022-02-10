@@ -85,3 +85,9 @@ jobs:
           script: chmod +x gradlew; 
           script: ./gradlew core:connectedAndroidTest; 
           script: ./gradlew app:connectedAndroidTest
+      
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: file:///Users/runner/work/tp1-antennapod/tp1-antennapod/app/build/reports/androidTests/connected/flavors/free/index.html
