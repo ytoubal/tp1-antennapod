@@ -42,16 +42,16 @@ jobs:
       run: ./gradlew app:test
     - name: Android Test Report
       uses: asadmansr/android-test-report-action@v1.2.0
-      if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      if: ${{ always() }} 
 
     - name:  Run tests of module core
       run: ./gradlew core:test
     - name: Android Test Report
       uses: asadmansr/android-test-report-action@v1.2.0
-      if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      if: ${{ always() }}
 
   androidTest:
-    runs-on: macOS-latest #Have to use mac os for HAXM hw acceleration. although it uses 10x more run minutes than ubuntu on GH actions
+    runs-on: macOS-latest #Have to use mac os for HAXM hw acceleration. 
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 11
@@ -61,6 +61,10 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Android Test Report
+        uses: asadmansr/android-test-report-action@v1.2.0
+        if: ${{ always() }} 
+      
       - name: Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.22.0
 
@@ -72,6 +76,3 @@ jobs:
                   ./gradlew core:connectedAndroidTest; 
                   ./gradlew app:connectedAndroidTest
      
-        - name: Android Test Report
-          uses: asadmansr/android-test-report-action@v1.2.0
-          if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
