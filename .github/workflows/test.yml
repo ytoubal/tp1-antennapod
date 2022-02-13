@@ -60,11 +60,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: gradle
-
-      - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }} 
-      
+          
       - name: Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.22.0
 
