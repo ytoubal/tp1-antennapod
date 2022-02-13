@@ -1,4 +1,4 @@
-name: Test
+name: Continuous Integration AntennaPod
 
 on:
   push:
@@ -50,7 +50,7 @@ jobs:
       uses: asadmansr/android-test-report-action@v1.2.0
       if: ${{ always() }}
 
-  androidTest:
+  instrumented-tests:
     runs-on: macOS-latest #Have to use mac os for HAXM hw acceleration. 
     steps:
       - uses: actions/checkout@v2
@@ -69,6 +69,6 @@ jobs:
           arch: x86
           disable-animations: true
           script: chmod +x gradlew; 
-                  ./gradlew core:connectedAndroidTest; 
-                  ./gradlew app:connectedAndroidTest
+                  ./gradlew app:connectedAndroidTest; 
+                  ./gradlew core:connectedAndroidTest
      
