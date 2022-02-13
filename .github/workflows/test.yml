@@ -41,14 +41,14 @@ jobs:
     - name: Run tests of module app
       run: ./gradlew app:test
     - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      uses: asadmansr/android-test-report-action@v1.2.0
+      if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
 
     - name:  Run tests of module core
       run: ./gradlew core:test
     - name: Android Test Report
-        uses: asadmansr/android-test-report-action@v1.2.0
-        if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
+      uses: asadmansr/android-test-report-action@v1.2.0
+      if: ${{ always() }} # IMPORTANT: run Android Test Report regardless
 
   androidTest:
     runs-on: macOS-latest #Have to use mac os for HAXM hw acceleration. although it uses 10x more run minutes than ubuntu on GH actions
