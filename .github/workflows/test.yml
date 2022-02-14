@@ -50,6 +50,12 @@ jobs:
       uses: asadmansr/android-test-report-action@v1.2.0
       if: ${{ always() }}
 
+    - name:  Run tests of module core
+      run: ./gradlew core:event
+    - name: Android Test Report
+      uses: asadmansr/android-test-report-action@v1.2.0
+      if: ${{ always() }}
+
   instrumented-tests:
     runs-on: macOS-latest #Have to use mac os for HAXM hw acceleration. 
     steps:
@@ -70,5 +76,6 @@ jobs:
           disable-animations: true
           script: chmod +x gradlew; 
                   ./gradlew app:connectedAndroidTest; 
-                  ./gradlew core:connectedAndroidTest
+                  ./gradlew core:connectedAndroidTest;
+                  ./gradlew event:connectedAndroidTest;
      
