@@ -49,9 +49,9 @@ jobs:
     - name: Android Test Report
       uses: asadmansr/android-test-report-action@v1.2.0
       if: ${{ always() }}
-
-    - name:  Run tests of module core
-      run: ./gradlew core:event
+      
+    - name:  Run tests of module event
+      run: ./gradlew event:test
     - name: Android Test Report
       uses: asadmansr/android-test-report-action@v1.2.0
       if: ${{ always() }}
